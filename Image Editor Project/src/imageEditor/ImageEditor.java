@@ -7,6 +7,7 @@ package imageEditor;
 /**
  *
  * @author Sofiansah
+ * @author DJ
  */
 import Convert.Im2Bw;
 import JImage.*;
@@ -27,9 +28,12 @@ public class ImageEditor extends javax.swing.JFrame {
 
    
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jSlider1 = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
@@ -39,10 +43,22 @@ public class ImageEditor extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Image Explorer");
@@ -77,6 +93,11 @@ public class ImageEditor extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jButton1);
 
         jMenu1.setText("File");
@@ -96,6 +117,9 @@ public class ImageEditor extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
+
+        jMenuItem7.setText("Exit");
+        jMenu1.add(jMenuItem7);
 
         jMenuBar1.add(jMenu1);
 
@@ -125,7 +149,33 @@ public class ImageEditor extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem5);
 
+        jMenuItem6.setText("Deteksi Tepi");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem6);
+
+        jMenuItem8.setText("Blur");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem8);
+
         jMenuBar1.add(jMenu2);
+
+        jMenu5.setText("Insert");
+
+        jMenuItem9.setText("Text");
+        jMenu5.add(jMenuItem9);
+
+        jMenuItem10.setText("Image");
+        jMenu5.add(jMenuItem10);
+
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -154,9 +204,9 @@ public class ImageEditor extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {                                      
         //mendapatkan nilai slider
         String value=String.valueOf(this.jSlider1.getValue());
         //update component JLabel
@@ -169,9 +219,9 @@ public class ImageEditor extends javax.swing.JFrame {
         //update component JLabel
         this.setImageButton(jButton1, image);
         
-    }//GEN-LAST:event_jSlider1StateChanged
+    }                                     
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         //kotak dialog file browser
         JFileChooser jFileChooser1=new JFileChooser();
         // kotak dialog save
@@ -206,17 +256,17 @@ public class ImageEditor extends javax.swing.JFrame {
 
         }
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }                                          
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {                                           
 
         //menampilkasn citra default (citra asal)
         this.setImageButton(jButton1, BIDefault);
       
 
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }                                          
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {                                           
        
         // class JICreareImage untuk menangani konvert rgb to gray
        JICreateImage createImage =new JICreateImage();
@@ -247,9 +297,9 @@ public class ImageEditor extends javax.swing.JFrame {
        //update citra sekarang (current)
        this.BICurrent=BW;
 
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }                                          
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // class JICreareImage untuk menangani konvert RGB ke gray
        JICreateImage create=new JICreateImage();
        BufferedImage gray=create.createImageRGB2Gray(BIDefault);
@@ -259,9 +309,9 @@ public class ImageEditor extends javax.swing.JFrame {
 
        //update citra sekarang (Current)
        this.BICurrent=gray;
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }                                          
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
          //kotak dialog file browser
         JFileChooser jFileChooser1=new JFileChooser();
@@ -293,7 +343,49 @@ public class ImageEditor extends javax.swing.JFrame {
             }
 
         }
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }                                          
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+         //pembuatan filter
+        double[][]kernel={{0,-1,0},
+                        {-1,4,-1},
+                        {0,-1,0}};
+
+        JIFilterImage  createImage=new JIFilterImage();
+
+        //BufferedImage
+        BufferedImage tepi=createImage.getImageResult(BIDefault, kernel);
+
+        //update component JButton
+       Image image=tepi;
+       this.jButton1.setIcon(new ImageIcon(image));
+
+       //update citra sekarang (Current)
+    this.BICurrent=tepi;
+    }                                          
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+        double[][]blur={{0.11,0.11,0.11},
+                        {0.11,0.11,0.11},
+                        {0.11,0.11,0.11} };
+
+        JIFilterImage  createImage=new JIFilterImage();
+
+        //BufferedImage
+        BufferedImage imageBlur=createImage.getImageResult(BIDefault, blur);
+        //update component JButton
+       Image image=imageBlur;
+       this.jButton1.setIcon(new ImageIcon(image));
+
+       //update citra sekarang (Current)
+       this.BICurrent=imageBlur;
+    }                                          
 
     private void initAll() throws IOException{
         String value=String.valueOf(this.jSlider1.getValue());
@@ -325,21 +417,30 @@ public class ImageEditor extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
     BufferedImage BIDefault;
     BufferedImage BICurrent;
     
