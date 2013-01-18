@@ -157,7 +157,15 @@ public class ImageEditor extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem6);
 
-        jMenuItem8.setText("Blur");
+        jMenuItem7.setText("Blur");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+         jMenu2.add(jMenuItem7);
+
+        jMenuItem8.setText("Sharpe");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
@@ -369,7 +377,7 @@ public class ImageEditor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                        
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
         double[][]blur={{0.11,0.11,0.11},
                         {0.11,0.11,0.11},
@@ -385,7 +393,24 @@ public class ImageEditor extends javax.swing.JFrame {
 
        //update citra sekarang (Current)
        this.BICurrent=imageBlur;
-    }                                          
+    }   
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // mengubah gambar menjadi sharpe
+         double[][]sharp={{0,-1,0},
+                        {-1,5,-1},
+                        {0,-1,0} };
+
+        JIFilterImage  createImage=new JIFilterImage();
+
+        //BufferedImage
+        BufferedImage imageSharp=createImage.getImageResult(BIDefault, sharp);
+        //update component JButton
+       Image image=imageSharp;
+       this.jButton1.setIcon(new ImageIcon(image));
+
+       //update citra sekarang (Current)
+       this.BICurrent=imageSharp;
+    }                        
 
     private void initAll() throws IOException{
         String value=String.valueOf(this.jSlider1.getValue());
